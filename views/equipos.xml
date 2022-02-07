@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+
+		<record model="ir.ui.view" id="equipo_tree_view">
+			<field name="name">equipo.tree</field>
+			<field name="model">equipo</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Equipos">
+          <field name="alumno_id"/>
+          <field name="aula_id"/>
+          <field name="price"/>
+          <field name="estado"/>
+          <field name="fechaCompra"/>
+				</tree>
+			</field>
+		</record>
+
+    <record id="calificacion_form_view" model="ir.ui.view">
+      <field name="name">equipo.form</field>
+      <field name="model">equipo</field>
+      <field name="arch" type="xml">
+      <form string="Resgistrar equipo">
+        <group>
+          <field name="alumno_id"/>
+          <field name="aula_id"/>
+          <field name="price"/>
+          <field name="estado"/>
+          <field name="fechaCompra"/>
+        </group>
+      </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="equipo_action_window">
+        <field name="name">equipo</field>
+        <field name="res_model">equipo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">Registrar nuevo equipo</p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_equipos" sequence="0" name="equipos"/>
+    <menuitem id="lista_equipo" name="ListaEquipos" parent="menu_equipos" groups="tecnico,profesor,administrador" action="equipo_action_window"/>
+  </data>
+</odoo>

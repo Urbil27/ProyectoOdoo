@@ -6,9 +6,8 @@ from dataclasses import field
 class equipo(models.Model):
     _name = 'equipo'
     _description = 'equipo'
+
     price = fields.Float()
-    alumno_id = fields.Many2one('alumno','alumno_id')
-    aula_id = fields.Many2one('aula','aula_id')
     estado = my_selection_field = fields.Selection([('bueno', 'Bueno'), ('malo', 'Malo')], string='Estado del equipo')
     fechaCompra = fields.Datetime()
 
@@ -39,7 +38,7 @@ class alumno(models.Model):
 
 class asistencia(models.Model):
     _name= 'asistencia'
-    alumno_id = fields.Many2one('alumno', 'user_id')
+    alumno = fields.Many2one('alumno', 'user_id')
     asignatura = fields.Many2one('asignatura', 'asignatura_id')
     fechaAsistencia = fields.Datetime()
     falta = fields.Selection([('s', 'Si'), ('n', 'No'),])

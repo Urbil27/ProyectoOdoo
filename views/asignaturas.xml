@@ -1,5 +1,44 @@
 <odoo>
   <data>
+
+		<record model="ir.ui.view" id="asignatura_tree_view">
+			<field name="name">asignatura.tree</field>
+			<field name="model">asignatura</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Asignaturas">
+          <field name="profesor_id"/>
+          <field name="nombre_asignatura"/>
+				</tree>
+			</field>
+		</record>
+
+    <record id="asignatura_form_view" model="ir.ui.view">
+            <field name="name">asignatura.form</field>
+            <field name="model">asignatura</field>
+            <field name="arch" type="xml">
+            <form string="Resgistrar asignatura">
+                        <group>
+                            <field name="profesor_id"/>
+                            <field name="nombre_asignatura"/>
+                        </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="asignatura_action_window">
+            <field name="name">asignatura</field>
+            <field name="res_model">asignatura</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Registrar nueva asignatura</p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_asignaturas" sequence="0" name="asignaturas"/>
+        <menuitem id="lista_asignaturas" name="ListaAsignatura" parent="menu_asignaturas"
+                  action="asignatura_action_window" groups="alumno,profesor,administrador"/>
     <!-- explicit list view definition -->
 <!--
     <record model="ir.ui.view" id="plaiaundi.list">

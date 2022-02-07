@@ -1,5 +1,46 @@
 <odoo>
   <data>
+
+		<record model="ir.ui.view" id="calificacion_tree_view">
+			<field name="name">calificacion.tree</field>
+			<field name="model">calificacion</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Calificaciones">
+          <field name="alumno_id"/>
+          <field name="asignatura"/>
+          <field name="calificacion"/>
+				</tree>
+			</field>
+		</record>
+
+    <record id="calificacion_form_view" model="ir.ui.view">
+            <field name="name">calificacion.form</field>
+            <field name="model">calificacion</field>
+            <field name="arch" type="xml">
+            <form string="Resgistrar calificación">
+                        <group>
+                            <field name="alumno_id"/>
+                            <field name="asignatura"/>
+                            <field name="calificacion"/>
+                        </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="calificacion_action_window">
+            <field name="name">calificacion</field>
+            <field name="res_model">calificacion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Registrar nueva calificacion</p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_calificacion" sequence="0" name="calificaciones"/>
+        <menuitem id="lista_calificacion" name="ListaCalificacion" parent="menu_calificacion"
+                  action="calificacion_action_window"/>
     <!-- explicit list view definition -->
 <!--
     <record model="ir.ui.view" id="plaiaundi.list">

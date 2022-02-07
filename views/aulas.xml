@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+
+		<record model="ir.ui.view" id="aula_tree_view">
+			<field name="name">aula.tree</field>
+			<field name="model">aula</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Aulas">
+                    <field name="codigo_aula"/>
+                    <field name="capacidad"/>
+                    
+				</tree>
+			</field>
+		</record>
+
+    <record id="aula_form_view" model="ir.ui.view">
+            <field name="name">aula.form</field>
+            <field name="model">aula</field>
+            <field name="arch" type="xml">
+            <form string="Resgistrar aula">
+                <group>
+                    <field name="codigo_aula"/>
+                    <field name="capacidad"/>
+                </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="aula_action_window">
+            <field name="name">aula</field>
+            <field name="res_model">aula</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Registrar nueva aula</p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_aula" sequence="0" name="aula"/>
+        <menuitem id="lista_aula" name="ListaAula" parent="menu_aula"
+                  action="aula_action_window" groups="profesor,administrador"/>
+  </data>
+</odoo>

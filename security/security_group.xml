@@ -1,0 +1,16 @@
+<openerp>
+     <data>
+        <record id="profesor" model="res.groups">
+            <field name="name">profesor</field>
+        </record>
+        <record id="alumno" model="res.groups">
+            <field name="name">alumno</field>
+        </record>
+        <record id="administrador" model="res.groups">
+            <field name="name">administrador</field>
+        </record>
+        <record id="tecnico" model="res.groups">
+            <field name="name">tecnico</field>
+        </record>
+     </data>
+ </openerp>     

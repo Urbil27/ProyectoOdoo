@@ -1,5 +1,42 @@
 <odoo>
   <data>
+
+		<record model="ir.ui.view" id="profesor_tree_view">
+			<field name="name">profesores.tree</field>
+			<field name="model">profesor</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Profesores">
+          <field name="user_id"/>
+				</tree>
+			</field>
+		</record>
+
+    <record id="alumnos_form_view" model="ir.ui.view">
+            <field name="name">profesores.form</field>
+            <field name="model">profesor</field>
+            <field name="arch" type="xml">
+            <form string="Resgistrar alumno">
+                        <group>
+                            <field name="user_id"/>
+                        </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="profesor_action_window">
+            <field name="name">Profesores</field>
+            <field name="res_model">profesor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Registrar nuevo profesor</p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_profesores" sequence="0" name="profesores"/>
+        <menuitem id="lista_profesores" name="ListaAlumnos" parent="menu_profesores"
+                  action="profesor_action_window"/>
     <!-- explicit list view definition -->
 <!--
     <record model="ir.ui.view" id="plaiaundi.list">

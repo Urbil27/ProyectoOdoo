@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+
+		<record model="ir.ui.view" id="asistencia_tree_view">
+			<field name="name">asistencia.tree</field>
+			<field name="model">asistencia</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Asistencias">
+                    <field name="alumno_id"/>
+                    <field name="asignatura"/>
+                    <field name="fechaAsistencia"/>
+                    <field name="falta"/>
+				</tree>
+			</field>
+		</record>
+
+    <record id="asistencia_form_view" model="ir.ui.view">
+            <field name="name">asistencia.form</field>
+            <field name="model">asistencia</field>
+            <field name="arch" type="xml">
+            <form string="Resgistrar asistencia">
+                <group>
+                    <field name="alumno_id"/>
+                    <field name="asignatura"/>
+                    <field name="fechaAsistencia"/>
+                    <field name="falta"/>
+                </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="asistencia_action_window">
+            <field name="name">asistencia</field>
+            <field name="res_model">asistencia</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Registrar nueva asistencia</p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_asistencia" sequence="0" name="asistencias"/>
+        <menuitem id="lista_asistencia" name="ListaAsistencia" parent="menu_asistencia"
+                  action="asistencia_action_window" groups="alumno,profesor,administrador"/>
+  </data>
+</odoo>

@@ -24,17 +24,13 @@
 
     # always loaded
     'data': [
-        'security/security_group.xml',
-        'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
         'views/profesores.xml',
         'views/alumnos.xml',
         'views/asignaturas.xml',
-        'views/calificaciones.xml',
-        'views/asistencias.xml',
-        'views/equipos.xml',
-        'views/aulas.xml'
+        'views/calificaciones.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
